@@ -11,7 +11,8 @@ app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());
 
 // ROUTES
-app.use('/api', require('./routes/api'));
+app.use('/api', require('./route/user'));
+app.use('/api', require('./route/ingredient'));
 
 // START SERVER
 app.listen(3000);

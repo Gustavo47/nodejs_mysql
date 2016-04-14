@@ -1,9 +1,9 @@
 // Database
 var database = {
 	host: 'localhost',
-	user: 'user',
-	password: 'user',
-	database: 'database'
+	user: 'root',
+	password: 'root',
+	database: 'nodejs'
 };
 
 module.exports = database;

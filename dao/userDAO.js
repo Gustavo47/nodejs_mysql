@@ -1,26 +1,36 @@
 // DEPENDENCIES
-var restful = require('node-restful');
-var mysql = require('mysql');
-var db = require('../config.js');
+var db = require('../model/sequelize');
+var user = require('../model/user')
 
-// DATABASE CONNECTION
-var conn = mysql.createConnection({
-	host: db.host,
-	user: db.user,
-	password: db.password,
-	database: db.database
-});
+function UserDao(){
 
-conn.connect(function(err){
-if(!err) {
-    console.log('Database is connected...');    
-} else {
-    console.log('Error connecting database... n' + s);    
 }
-});
 
-var getAll = function (){
-	conn.query('SELECT * FROM User');
+UserDao.prototype.getAllUsers = function() {
+	user.findAll().then(function(users){
+		return users
+	});
 };
 
-module.exports = getAll();
+var userDao = new UserDao();
+/*User.sync().then( function() {
+	var user = {
+		firstName: 'first',
+		lastName: 'last',
+		email: 'email@adress.com',
+		userName: 'first.last',
+		password: 'password'
+	}
+
+	User.create(user).then( function(post) {
+		console.dir(post.get())
+	})
+});
+
+module.exports = function getUsers(req, res) {
+	user.findAll().success(function (users) {
+		res.send(users)
+	});
+};*/
+
+module.exports = userDao;

@@ -1,6 +1,6 @@
 // DEPENDENCIES
 var Sequelize = require('Sequelize');
-var dbConf = require('../config.js')
+var dbConf = require('../config')
 
 // Instantiating Sequelize CLASS into sequelize OBJECT
 var sequelize = new Sequelize(

@@ -2,7 +2,7 @@
 var Sequelize = require('Sequelize');
 var db = require('./sequelize')
 
-var User = db.define('user', {
+var user = db.define('user', {
 	id: {
 		type: Sequelize.INTEGER,
 		primaryKey: true,
@@ -27,6 +27,14 @@ var User = db.define('user', {
 	password: {
 		type: Sequelize.STRING,
 	},
+	createdAt: {
+		type: Sequelize.DATEONLY(),
+		field: 'created_at'
+	},
+	updatedAt: {
+		type: Sequelize.DATEONLY(),
+		field: 'updated_at'
+	},
 	isEnabled: {
 		type: Sequelize.BOOLEAN,
 		field: 'is_enabled',
@@ -36,16 +44,4 @@ var User = db.define('user', {
 	freezeTableName: true
 });
 
-User.sync().then(function(){
-	var user = {
-		firstName: 'Gustavo',
-		lastName: 'Jardim',
-		email: 'gustavo.spadotto@gmail.com',
-		userName: 'gustavo.jardim',
-		password: 'password'
-	}
-
-	User.create(user).then(function(post){
-		console.dir(post.get())
-	})
-});
+module.exports = user;
