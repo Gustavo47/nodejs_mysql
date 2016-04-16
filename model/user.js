@@ -1,5 +1,5 @@
 // DEPENDENCIES
-var Sequelize = require('Sequelize');
+var Sequelize = require('sequelize');
 var db = require('./sequelize')
 
 var user = db.define('user', {

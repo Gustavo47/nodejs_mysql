@@ -1,6 +1,6 @@
 // DEPENDENCIES
 var db = require('../model/sequelize');
-var user = require('../model/user')
+var User = require('../model/user')
 
 function UserDao(){
 
@@ -13,7 +13,7 @@ UserDao.prototype.getAllUsers = function() {
 };
 
 var userDao = new UserDao();
-/*User.sync().then( function() {
+User.sync().then( function() {
 	var user = {
 		firstName: 'first',
 		lastName: 'last',
@@ -31,6 +31,6 @@ module.exports = function getUsers(req, res) {
 	user.findAll().success(function (users) {
 		res.send(users)
 	});
-};*/
+};
 
 module.exports = userDao;
